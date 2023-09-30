@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?attr/backgroundColor"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/secondaryColor"
+            android:fontFamily="?attr/fontBold"
+            android:textSize="20sp"
+            android:text="Confirm Exit?" />
+
+        <TextView
+            android:id="@+id/prompt_textview"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/secondaryColor"
+            android:textSize="16sp"
+            android:text="Are you sure you want to exit?" />
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/prompt_button_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_design"
+                app:backgroundTint="?attr/secondaryColor"
+                android:fontFamily="?attr/fontSemiBold"
+                android:textColor="?attr/primaryColor"
+                android:textAllCaps="false"
+                android:text="Yes" />
+
+            <Button
+                android:id="@+id/prompt_button_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_design"
+                app:backgroundTint="?attr/secondaryColor"
+                android:fontFamily="?attr/fontSemiBold"
+                android:textColor="?attr/primaryColor"
+                android:textAllCaps="false"
+                android:text="No" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
