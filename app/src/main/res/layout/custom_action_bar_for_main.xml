@@ -32,16 +32,17 @@
                 android:gravity="center"
                 android:fontFamily="@font/montserrat_bold"
                 android:textSize="30sp"
-                android:textColor="@color/dodgerblue"
-                android:text="PHP" />
+                android:textColor="@color/darkcolor_1"
+                android:text="unit" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:fontFamily="@font/montserrat_bold"
                 android:textSize="30sp"
-                android:textColor="@color/white"
-                android:text="Editor" />
+                android:textColor="@color/lightcolor"
+                android:text="z" />
 
         </LinearLayout>
 

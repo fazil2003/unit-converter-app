@@ -24,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.multidex.BuildConfig;
 
 import java.util.Objects;
 
@@ -78,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
         // * Display the Version Name.
         versionName = findViewById(R.id.version_name);
-        versionName.setText("Version: " + BuildConfig.VERSION_NAME);
+//        versionName.setText("Version: " + BuildConfig.VERSION_NAME);
+        versionName.setText("Version: " + "1.0.0");
 
         // * Open the Next Activity after some time.
 //        new Handler().postDelayed(new Runnable() {
