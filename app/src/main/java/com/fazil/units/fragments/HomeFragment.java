@@ -1,5 +1,6 @@
 package com.fazil.units.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fazil.units.ConvertActivity;
 import com.fazil.units.HomeActivity;
 import com.fazil.units.R;
 
@@ -25,12 +27,12 @@ public class HomeFragment extends Fragment {
         unitArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment selectedFragment = new ConvertFragment();
-                Bundle arguments = new Bundle();
-                arguments.putString("unit", "area");
-                selectedFragment.setArguments(arguments);
-                ((HomeActivity) requireActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
+                Intent intent = new Intent(requireActivity(), ConvertActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("unit", "area");
+                startActivity(intent);
+                // * New Activity Animation, Current Activity Animation.
+                requireActivity().overridePendingTransition(R.anim.intent_enter_animation, R.anim.intent_no_animation);
             }
         });
 
