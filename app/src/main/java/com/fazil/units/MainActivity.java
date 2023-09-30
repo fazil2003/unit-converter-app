@@ -81,17 +81,17 @@ public class MainActivity extends AppCompatActivity {
         versionName.setText("Version: " + "1.0.0");
 
         // * Open the Next Activity after some time.
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent i = new Intent(MainActivity.this, MainActivity.class);
-//                i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(i);
-//                // * New Activity Animation, Current Activity Animation.
-//                overridePendingTransition(R.anim.intent_enter_animation, R.anim.intent_no_animation);
-//                finish();
-//            }
-//        }, SPLASH_SCREEN_TIME_OUT);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                // * New Activity Animation, Current Activity Animation.
+                overridePendingTransition(R.anim.intent_enter_animation, R.anim.intent_no_animation);
+                finish();
+            }
+        }, SPLASH_SCREEN_TIME_OUT);
 
     }
 
