@@ -25,7 +25,6 @@ public class ConvertActivity extends AppCompatActivity {
     ImageButton actionBarButton;
 
     EditText questionField, answerField;
-    String questionValue, answerValue;
 
     TinyDB tinyDB;
     // * TinyDB Instances.
@@ -83,14 +82,22 @@ public class ConvertActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.length() != 0) {
-                    Float questionValueFloat = Float.parseFloat(s.toString());
-                    Float commonValueFloat = questionValueFloat * 1000;
-                    Float answerValueFloat = commonValueFloat * 100;
-                    answerField.setText(String.valueOf(answerValueFloat));
+                    Float value = Float.parseFloat(s.toString());
+                    value = convertKilometerToMeter(value);
+                    value = convertMeterToCentimeter(value);
+                    answerField.setText(String.valueOf(value));
                 }
             }
         });
 
-
     }
+
+    private Float convertKilometerToMeter(Float value){
+        return value * 1000;
+    }
+
+    private Float convertMeterToCentimeter(Float value){
+        return value * 100;
+    }
+    
 }
