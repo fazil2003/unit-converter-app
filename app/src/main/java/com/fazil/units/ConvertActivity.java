@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -20,6 +23,9 @@ public class ConvertActivity extends AppCompatActivity {
     String ACTIVITY_TITLE = "Subscription";
     TextView textViewActivityTitle;
     ImageButton actionBarButton;
+
+    EditText questionField, answerField;
+    String questionValue, answerValue;
 
     TinyDB tinyDB;
     // * TinyDB Instances.
@@ -64,6 +70,27 @@ public class ConvertActivity extends AppCompatActivity {
         // * Set the Action Bar Button.
         actionBarButton = findViewById(R.id.action_bar_button);
         actionBarButton.setVisibility(GONE);
+
+        questionField = findViewById(R.id.edittext_question);
+        answerField = findViewById(R.id.edittext_answer);
+
+        questionField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {}
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length() != 0) {
+                    Float questionValueFloat = Float.parseFloat(s.toString());
+                    Float commonValueFloat = questionValueFloat * 1000;
+                    Float answerValueFloat = commonValueFloat * 100;
+                    answerField.setText(String.valueOf(answerValueFloat));
+                }
+            }
+        });
+
 
     }
 }
