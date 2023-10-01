@@ -18,28 +18,29 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <Button
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                app:backgroundTint="?attr/backgroundColor"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
-                android:drawableTint="@color/dodgerblue"
-                android:textAlignment="textStart"
-                android:textAllCaps="false"
-                android:textColor="@color/dodgerblue"
-                android:textSize="16sp"
-                android:padding="10dp"
-                android:text="Kilometer" />
+                app:boxBackgroundColor="?attr/backgroundColor">
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/dropdown_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/secondaryColor"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
                 android:id="@+id/edittext_question"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="0"
+                android:text="0"
                 android:background="@drawable/edittext_focused_effect"
+                android:textColor="?attr/secondaryColor"
+                android:textColorHint="?attr/secondaryColor"
                 android:textSize="18sp"
                 android:fontFamily="@font/montserrat_bold"
                 android:padding="15dp"
@@ -66,6 +67,7 @@
                 android:id="@+id/edittext_answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:hint="0"
                 android:background="@drawable/edittext_focused_effect"
                 android:textSize="18sp"

@@ -2,14 +2,21 @@ package com.fazil.units;
 
 import static android.view.View.GONE;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,6 +32,15 @@ public class ConvertActivity extends AppCompatActivity {
     ImageButton actionBarButton;
 
     String questionUnit, answerUnit;
+
+    String[] lengthItems = {
+            "Centimeter",
+            "Kilometer",
+            "Meter"
+    };
+
+    AutoCompleteTextView autoCompleteTextView;
+    ArrayAdapter<String> arrayAdapter;
 
     EditText questionField, answerField;
 
@@ -78,6 +94,31 @@ public class ConvertActivity extends AppCompatActivity {
         questionUnit = "kilometer";
         answerUnit = "centimeter";
 
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.backgroundColor, typedValue, true);
+        @ColorInt int color = typedValue.data;
+
+        autoCompleteTextView = findViewById(R.id.dropdown_question);
+        autoCompleteTextView.setDropDownBackgroundDrawable(new ColorDrawable(color));
+        arrayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, lengthItems);
+        autoCompleteTextView.setAdapter(arrayAdapter);
+
+        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                questionUnit = s.toString().toLowerCase();
+                changeValues(questionField.getText().toString());
+            }
+        });
+
         questionField.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {}
@@ -87,14 +128,21 @@ public class ConvertActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.length() != 0) {
-                    Float value = Float.parseFloat(s.toString());
-                    value = convertQuestionToCommon(questionUnit, value);
-                    value = convertCommonToAnswer(answerUnit, value);
-                    answerField.setText(String.valueOf(value));
+                    changeValues(s.toString());
+                }
+                else{
+                    answerField.setText("0");
                 }
             }
         });
 
+    }
+
+    private void changeValues(String s){
+        Float value = Float.parseFloat(s);
+        value = convertQuestionToCommon(questionUnit, value);
+        value = convertCommonToAnswer(answerUnit, value);
+        answerField.setText(String.valueOf(value));
     }
 
     private float convertQuestionToCommon(String unit, Float value){
@@ -105,6 +153,9 @@ public class ConvertActivity extends AppCompatActivity {
                 break;
             case "kilometer":
                 result = value * 1000;
+                break;
+            case "meter":
+                result = value;
                 break;
         }
         return result;
@@ -118,6 +169,9 @@ public class ConvertActivity extends AppCompatActivity {
                 break;
             case "kilometer":
                 result = value / 1000;
+                break;
+            case "meter":
+                result = value;
                 break;
         }
         return result;
