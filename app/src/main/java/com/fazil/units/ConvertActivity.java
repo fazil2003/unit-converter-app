@@ -24,6 +24,8 @@ public class ConvertActivity extends AppCompatActivity {
     TextView textViewActivityTitle;
     ImageButton actionBarButton;
 
+    String questionUnit, answerUnit;
+
     EditText questionField, answerField;
 
     TinyDB tinyDB;
@@ -73,6 +75,9 @@ public class ConvertActivity extends AppCompatActivity {
         questionField = findViewById(R.id.edittext_question);
         answerField = findViewById(R.id.edittext_answer);
 
+        questionUnit = "kilometer";
+        answerUnit = "centimeter";
+
         questionField.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {}
@@ -83,8 +88,8 @@ public class ConvertActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.length() != 0) {
                     Float value = Float.parseFloat(s.toString());
-                    value = convertKilometerToMeter(value);
-                    value = convertMeterToCentimeter(value);
+                    value = convertQuestionToCommon(questionUnit, value);
+                    value = convertCommonToAnswer(answerUnit, value);
                     answerField.setText(String.valueOf(value));
                 }
             }
@@ -92,12 +97,30 @@ public class ConvertActivity extends AppCompatActivity {
 
     }
 
-    private Float convertKilometerToMeter(Float value){
-        return value * 1000;
+    private float convertQuestionToCommon(String unit, Float value){
+        float result = 0.0F;
+        switch(unit){
+            case "centimeter":
+                result = value / 100;
+                break;
+            case "kilometer":
+                result = value * 1000;
+                break;
+        }
+        return result;
     }
 
-    private Float convertMeterToCentimeter(Float value){
-        return value * 100;
+    private float convertCommonToAnswer(String unit, Float value){
+        float result = 0.0F;
+        switch(unit){
+            case "centimeter":
+                result = value * 100;
+                break;
+            case "kilometer":
+                result = value / 1000;
+                break;
+        }
+        return result;
     }
-    
+
 }

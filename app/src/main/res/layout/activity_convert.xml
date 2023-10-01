@@ -18,42 +18,55 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
+                app:backgroundTint="?attr/backgroundColor"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+                android:drawableTint="@color/dodgerblue"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
                 android:textColor="@color/dodgerblue"
                 android:textSize="16sp"
                 android:padding="10dp"
-                android:layout_marginTop="0dp"
                 android:text="Kilometer" />
 
             <EditText
                 android:id="@+id/edittext_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="Unit"
+                android:hint="0"
                 android:background="@drawable/edittext_focused_effect"
                 android:textSize="18sp"
                 android:fontFamily="@font/montserrat_bold"
                 android:padding="15dp"
                 android:textCursorDrawable="@drawable/custom_cursor"/>
 
-            <TextView
+            <Button
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
+                app:backgroundTint="?attr/backgroundColor"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
+                android:drawableTint="@color/dodgerblue"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
                 android:textColor="@color/dodgerblue"
                 android:textSize="16sp"
                 android:padding="10dp"
-                android:layout_marginTop="20dp"
                 android:text="Centimeter" />
 
             <EditText
                 android:id="@+id/edittext_answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="Unit"
+                android:hint="0"
                 android:background="@drawable/edittext_focused_effect"
                 android:textSize="18sp"
                 android:fontFamily="@font/montserrat_bold"
