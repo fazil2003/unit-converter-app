@@ -7,10 +7,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;
@@ -23,6 +24,9 @@ import android.widget.TextView;
 
 import com.fazil.units.utilities.CustomActionBar;
 import com.fazil.units.utilities.TinyDB;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ConvertActivity extends AppCompatActivity {
 
@@ -39,7 +43,7 @@ public class ConvertActivity extends AppCompatActivity {
             "Meter"
     };
 
-    AutoCompleteTextView autoCompleteTextView;
+    AutoCompleteTextView dropdownQuestion, dropdownAnswer;
     ArrayAdapter<String> arrayAdapter;
 
     EditText questionField, answerField;
@@ -99,22 +103,43 @@ public class ConvertActivity extends AppCompatActivity {
         theme.resolveAttribute(R.attr.backgroundColor, typedValue, true);
         @ColorInt int color = typedValue.data;
 
-        autoCompleteTextView = findViewById(R.id.dropdown_question);
-        autoCompleteTextView.setDropDownBackgroundDrawable(new ColorDrawable(color));
+        int positionOne = new ArrayList<String>(Arrays.asList(lengthItems)).indexOf("Kilometer");
+        int positionTwo = new ArrayList<String>(Arrays.asList(lengthItems)).indexOf("Meter");
+
         arrayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, lengthItems);
-        autoCompleteTextView.setAdapter(arrayAdapter);
 
-        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+        dropdownQuestion = findViewById(R.id.dropdown_question);
+        dropdownAnswer = findViewById(R.id.dropdown_answer);
 
+        dropdownQuestion.setText(arrayAdapter.getItem(positionOne), true);
+        dropdownAnswer.setText(arrayAdapter.getItem(positionTwo), true);
+
+        dropdownQuestion.setDropDownBackgroundDrawable(new ColorDrawable(color));
+        dropdownQuestion.setAdapter(arrayAdapter);
+
+        dropdownAnswer.setDropDownBackgroundDrawable(new ColorDrawable(color));
+        dropdownAnswer.setAdapter(arrayAdapter);
+
+        dropdownQuestion.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
             @Override
             public void afterTextChanged(Editable s) {
                 questionUnit = s.toString().toLowerCase();
+                changeValues(questionField.getText().toString());
+            }
+        });
+
+        dropdownAnswer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void afterTextChanged(Editable s) {
+                answerUnit = s.toString().toLowerCase();
                 changeValues(questionField.getText().toString());
             }
         });
