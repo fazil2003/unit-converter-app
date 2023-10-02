@@ -57,12 +57,51 @@
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
                         android:src="@drawable/baseline_area_chart_24"
-                        app:tint="@color/dodgerblue" />
+                        app:tint="@color/appcolor_1" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Area"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Length -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_unit_length"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="15dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/baseline_linear_scale_24"
+                        app:tint="@color/appcolor_4" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Length"
                         android:textAlignment="center"
                         android:fontFamily="@font/montserrat_bold"
                         android:textColor="@color/black"
@@ -96,7 +135,7 @@
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
                         android:src="@drawable/baseline_battery_5_bar_24"
-                        app:tint="@color/dodgerblue" />
+                        app:tint="@color/appcolor_2" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -135,51 +174,12 @@
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
                         android:src="@drawable/baseline_shopping_bag_24"
-                        app:tint="@color/dodgerblue" />
+                        app:tint="@color/appcolor_3" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Weight"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Length -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardview_unit_length"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_columnWeight="1"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="15dp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:padding="10dp"
-                        android:scaleType="fitCenter"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/baseline_linear_scale_24"
-                        app:tint="@color/dodgerblue" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Length"
                         android:textAlignment="center"
                         android:fontFamily="@font/montserrat_bold"
                         android:textColor="@color/black"

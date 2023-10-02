@@ -197,4 +197,10 @@ public class ConvertActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.intent_no_animation, R.anim.intent_exit_animation);
+    }
+
 }

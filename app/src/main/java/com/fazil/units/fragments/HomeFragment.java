@@ -16,18 +16,45 @@ import com.fazil.units.R;
 
 public class HomeFragment extends Fragment {
 
-    CardView unitArea;
+    CardView unitArea, unitLength, unitVolume, unitWeight;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Initialize Views.
         unitArea = view.findViewById(R.id.cardview_unit_area);
+        unitLength = view.findViewById(R.id.cardview_unit_length);
+        unitWeight = view.findViewById(R.id.cardview_unit_weight);
+        unitVolume = view.findViewById(R.id.cardview_unit_volume);
+
+        // Function Calling.
         unitArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateToConvertActivity("area");
+            }
+        });
+
+        unitLength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToConvertActivity("length");
+            }
+        });
+
+        unitVolume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToConvertActivity("volume");
+            }
+        });
+
+        unitWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToConvertActivity("weight");
             }
         });
 
