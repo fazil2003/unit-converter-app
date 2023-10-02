@@ -17,6 +17,7 @@ public class LengthUnits implements Units {
             "Meter",
             "Mile",
             "Millimeter",
+            "Nautical Mile",
             "Rod",
             "Yard"
     };
@@ -59,6 +60,9 @@ public class LengthUnits implements Units {
                 break;
             case "millimeter":
                 result = value / 1000;
+                break;
+            case "nautical mile":
+                result = value * 1852;
                 break;
             case "rod":
                 result = value * 5.029;
@@ -108,6 +112,9 @@ public class LengthUnits implements Units {
                 break;
             case "millimeter":
                 result = value * 1000;
+                break;
+            case "nautical mile":
+                result = value / 1852;
                 break;
             case "rod":
                 result = value / 5.029;
