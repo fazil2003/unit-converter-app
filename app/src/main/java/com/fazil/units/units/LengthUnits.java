@@ -8,11 +8,14 @@ public class LengthUnits implements Units {
             "Centimeter",
             "Decameter",
             "Decimeter",
+            "Fathom",
+            "Foot",
             "Hectometer",
             "Inch",
             "Kilometer",
             "Meter",
-            "Millimeter"
+            "Millimeter",
+            "Yard"
     };
 
     public double convertQuestionToCommon(String unit, Double value){
@@ -26,6 +29,12 @@ public class LengthUnits implements Units {
                 break;
             case "decimeter":
                 result = value / 10;
+                break;
+            case "fathom":
+                result = value * 1.829;
+                break;
+            case "foot":
+                result = value * 0.3048;
                 break;
             case "hectometer":
                 result = value * 100;
@@ -41,6 +50,9 @@ public class LengthUnits implements Units {
                 break;
             case "millimeter":
                 result = value / 1000;
+                break;
+            case "yard":
+                result = value * 0.9144;
                 break;
         }
         return result;
@@ -58,6 +70,12 @@ public class LengthUnits implements Units {
             case "decimeter":
                 result = value * 10;
                 break;
+            case "fathom":
+                result = value / 1.829;
+                break;
+            case "foot":
+                result = value / 0.3048;
+                break;
             case "hectometer":
                 result = value / 100;
                 break;
@@ -72,6 +90,9 @@ public class LengthUnits implements Units {
                 break;
             case "millimeter":
                 result = value * 1000;
+                break;
+            case "yard":
+                result = value / 0.9144;
                 break;
         }
         return result;
