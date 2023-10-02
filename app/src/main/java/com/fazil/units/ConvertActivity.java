@@ -93,13 +93,13 @@ public class ConvertActivity extends AppCompatActivity {
 
         // Get the Units Interface.
         units = new LengthUnits();
+        // Get the default values.
         unitItems = LengthUnits.unitItems;
+        questionUnit = LengthUnits.primaryUnit;
+        answerUnit = LengthUnits.secondaryUnit;
 
         questionField = findViewById(R.id.edittext_question);
         answerField = findViewById(R.id.edittext_answer);
-
-        questionUnit = "Kilometer";
-        answerUnit = "Centimeter";
 
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = getTheme();

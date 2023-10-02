@@ -22,6 +22,9 @@ public class LengthUnits implements Units {
             "Yard"
     };
 
+    public static String primaryUnit = "Kilometer";
+    public static String secondaryUnit = "Centimeter";
+
     public double convertQuestionToCommon(String unit, Double value){
         double result = 0.0;
         switch(unit.toLowerCase()){
