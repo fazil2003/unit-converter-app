@@ -15,6 +15,7 @@ public class LengthUnits implements Units {
             "Kilometer",
             "Meter",
             "Millimeter",
+            "Rod",
             "Yard"
     };
 
@@ -50,6 +51,9 @@ public class LengthUnits implements Units {
                 break;
             case "millimeter":
                 result = value / 1000;
+                break;
+            case "rod":
+                result = value * 5.029;
                 break;
             case "yard":
                 result = value * 0.9144;
@@ -90,6 +94,9 @@ public class LengthUnits implements Units {
                 break;
             case "millimeter":
                 result = value * 1000;
+                break;
+            case "rod":
+                result = value / 5.029;
                 break;
             case "yard":
                 result = value / 0.9144;

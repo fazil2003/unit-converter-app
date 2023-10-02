@@ -163,6 +163,10 @@ public class ConvertActivity extends AppCompatActivity {
             }
         });
 
+        // Set the default unit as 1.
+        questionField.setText("1.0");
+        changeValues("1.0");
+
     }
 
     private void changeValues(String s){
