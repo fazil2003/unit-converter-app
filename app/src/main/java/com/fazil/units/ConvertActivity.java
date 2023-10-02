@@ -14,6 +14,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.ActionBar;
@@ -25,6 +26,8 @@ import com.fazil.units.units.Units;
 import com.fazil.units.utilities.CustomActionBar;
 import com.fazil.units.utilities.TinyDB;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -170,10 +173,23 @@ public class ConvertActivity extends AppCompatActivity {
     }
 
     private void changeValues(String s){
-        Double value = Double.parseDouble(s);
+        double value = Double.parseDouble(s);
         value = units.convertQuestionToCommon(questionUnit, value);
         value = units.convertCommonToAnswer(answerUnit, value);
-        answerField.setText(String.valueOf(value));
+        String strValue = new BigDecimal(value).toPlainString();
+        String decimalPart = "";
+        String fractionalPart = "";
+        if (strValue.split("[.]").length > 1){
+            decimalPart = strValue.split("[.]")[0];
+            fractionalPart = strValue.split("[.]")[1];
+            if (fractionalPart.length() > 10){
+                fractionalPart = fractionalPart.substring(0, 10);
+            }
+            answerField.setText(decimalPart + "." + fractionalPart);
+        }
+        else{
+            answerField.setText(strValue);
+        }
     }
 
 }
