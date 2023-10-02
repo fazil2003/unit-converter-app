@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.fazil.units.units.LengthUnits;
+import com.fazil.units.units.Units;
 import com.fazil.units.utilities.CustomActionBar;
 import com.fazil.units.utilities.TinyDB;
 
@@ -42,6 +44,8 @@ public class ConvertActivity extends AppCompatActivity {
             "Kilometer",
             "Meter"
     };
+
+    Units units;
 
     AutoCompleteTextView dropdownQuestion, dropdownAnswer;
     ArrayAdapter<String> arrayAdapter;
@@ -91,6 +95,9 @@ public class ConvertActivity extends AppCompatActivity {
         // * Set the Action Bar Button.
         actionBarButton = findViewById(R.id.action_bar_button);
         actionBarButton.setVisibility(GONE);
+
+        // Get the Units Interface.
+        units = new LengthUnits();
 
         questionField = findViewById(R.id.edittext_question);
         answerField = findViewById(R.id.edittext_answer);
@@ -165,41 +172,9 @@ public class ConvertActivity extends AppCompatActivity {
 
     private void changeValues(String s){
         Float value = Float.parseFloat(s);
-        value = convertQuestionToCommon(questionUnit, value);
-        value = convertCommonToAnswer(answerUnit, value);
+        value = units.convertQuestionToCommon(questionUnit, value);
+        value = units.convertCommonToAnswer(answerUnit, value);
         answerField.setText(String.valueOf(value));
-    }
-
-    private float convertQuestionToCommon(String unit, Float value){
-        float result = 0.0F;
-        switch(unit){
-            case "centimeter":
-                result = value / 100;
-                break;
-            case "kilometer":
-                result = value * 1000;
-                break;
-            case "meter":
-                result = value;
-                break;
-        }
-        return result;
-    }
-
-    private float convertCommonToAnswer(String unit, Float value){
-        float result = 0.0F;
-        switch(unit){
-            case "centimeter":
-                result = value * 100;
-                break;
-            case "kilometer":
-                result = value / 1000;
-                break;
-            case "meter":
-                result = value;
-                break;
-        }
-        return result;
     }
 
 }
