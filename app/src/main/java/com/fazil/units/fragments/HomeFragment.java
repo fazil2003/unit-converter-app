@@ -27,15 +27,19 @@ public class HomeFragment extends Fragment {
         unitArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(requireActivity(), ConvertActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("unit", "area");
-                startActivity(intent);
-                // * New Activity Animation, Current Activity Animation.
-                requireActivity().overridePendingTransition(R.anim.intent_enter_animation, R.anim.intent_no_animation);
+                navigateToConvertActivity("area");
             }
         });
 
         return view;
+    }
+
+    private void navigateToConvertActivity(String unit){
+        Intent intent = new Intent(requireActivity(), ConvertActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("unit", unit);
+        startActivity(intent);
+        // * New Activity Animation, Current Activity Animation.
+        requireActivity().overridePendingTransition(R.anim.intent_enter_animation, R.anim.intent_no_animation);
     }
 }

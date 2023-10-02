@@ -92,7 +92,14 @@ public class ConvertActivity extends AppCompatActivity {
         actionBarButton.setVisibility(GONE);
 
         // Get the Units Interface.
-        units = new LengthUnits();
+        switch (unit){
+            case "area":
+                units = new LengthUnits();
+                break;
+            case "length":
+                units = new LengthUnits();
+                break;
+        }
         // Get the default values.
         unitItems = LengthUnits.unitItems;
         questionUnit = LengthUnits.primaryUnit;
