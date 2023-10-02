@@ -12,7 +12,7 @@ public class LengthUnits implements Units {
 
     public float convertQuestionToCommon(String unit, Float value){
         float result = 0.0F;
-        switch(unit){
+        switch(unit.toLowerCase()){
             case "centimeter":
                 result = value / 100;
                 break;
@@ -40,7 +40,7 @@ public class LengthUnits implements Units {
 
     public float convertCommonToAnswer(String unit, Float value){
         float result = 0.0F;
-        switch(unit){
+        switch(unit.toLowerCase()){
             case "centimeter":
                 result = value * 100;
                 break;

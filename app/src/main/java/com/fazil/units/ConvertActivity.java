@@ -97,16 +97,16 @@ public class ConvertActivity extends AppCompatActivity {
         questionField = findViewById(R.id.edittext_question);
         answerField = findViewById(R.id.edittext_answer);
 
-        questionUnit = "kilometer";
-        answerUnit = "centimeter";
+        questionUnit = "Kilometer";
+        answerUnit = "Centimeter";
 
         TypedValue typedValue = new TypedValue();
         Resources.Theme theme = getTheme();
         theme.resolveAttribute(R.attr.backgroundColor, typedValue, true);
         @ColorInt int color = typedValue.data;
 
-        int positionOne = new ArrayList<>(Arrays.asList(unitItems)).indexOf("Kilometer");
-        int positionTwo = new ArrayList<>(Arrays.asList(unitItems)).indexOf("Meter");
+        int positionOne = new ArrayList<>(Arrays.asList(unitItems)).indexOf(questionUnit);
+        int positionTwo = new ArrayList<>(Arrays.asList(unitItems)).indexOf(answerUnit);
 
         arrayAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, unitItems);
 
