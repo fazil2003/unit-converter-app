@@ -6,12 +6,17 @@ public class LengthUnits implements Units {
 
     public static String[] unitItems = {
             "Centimeter",
+            "Decameter",
+            "Decimeter",
+            "Hectometer",
+            "Inch",
             "Kilometer",
-            "Meter"
+            "Meter",
+            "Millimeter"
     };
 
-    public float convertQuestionToCommon(String unit, Float value){
-        float result = 0.0F;
+    public double convertQuestionToCommon(String unit, Double value){
+        double result = 0.0;
         switch(unit.toLowerCase()){
             case "centimeter":
                 result = value / 100;
@@ -24,6 +29,9 @@ public class LengthUnits implements Units {
                 break;
             case "hectometer":
                 result = value * 100;
+                break;
+            case "inch":
+                result = value * 0.0254;
                 break;
             case "kilometer":
                 result = value * 1000;
@@ -38,8 +46,8 @@ public class LengthUnits implements Units {
         return result;
     }
 
-    public float convertCommonToAnswer(String unit, Float value){
-        float result = 0.0F;
+    public double convertCommonToAnswer(String unit, Double value){
+        double result = 0.0;
         switch(unit.toLowerCase()){
             case "centimeter":
                 result = value * 100;
@@ -52,6 +60,9 @@ public class LengthUnits implements Units {
                 break;
             case "hectometer":
                 result = value / 100;
+                break;
+            case "inch":
+                result = value / 0.0254;
                 break;
             case "kilometer":
                 result = value / 1000;

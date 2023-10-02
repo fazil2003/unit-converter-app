@@ -166,7 +166,7 @@ public class ConvertActivity extends AppCompatActivity {
     }
 
     private void changeValues(String s){
-        Float value = Float.parseFloat(s);
+        Double value = Double.parseDouble(s);
         value = units.convertQuestionToCommon(questionUnit, value);
         value = units.convertCommonToAnswer(answerUnit, value);
         answerField.setText(String.valueOf(value));
