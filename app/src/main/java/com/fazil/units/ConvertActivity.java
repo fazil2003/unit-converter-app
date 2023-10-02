@@ -2,16 +2,9 @@ package com.fazil.units;
 
 import static android.view.View.GONE;
 
-import androidx.annotation.ColorInt;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;
@@ -21,6 +14,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.fazil.units.units.LengthUnits;
 import com.fazil.units.units.Units;
@@ -39,11 +37,7 @@ public class ConvertActivity extends AppCompatActivity {
 
     String questionUnit, answerUnit;
 
-    String[] lengthItems = {
-            "Centimeter",
-            "Kilometer",
-            "Meter"
-    };
+    String[] unitItems;
 
     Units units;
 
@@ -98,6 +92,7 @@ public class ConvertActivity extends AppCompatActivity {
 
         // Get the Units Interface.
         units = new LengthUnits();
+        unitItems = LengthUnits.unitItems;
 
         questionField = findViewById(R.id.edittext_question);
         answerField = findViewById(R.id.edittext_answer);
@@ -110,10 +105,10 @@ public class ConvertActivity extends AppCompatActivity {
         theme.resolveAttribute(R.attr.backgroundColor, typedValue, true);
         @ColorInt int color = typedValue.data;
 
-        int positionOne = new ArrayList<String>(Arrays.asList(lengthItems)).indexOf("Kilometer");
-        int positionTwo = new ArrayList<String>(Arrays.asList(lengthItems)).indexOf("Meter");
+        int positionOne = new ArrayList<>(Arrays.asList(unitItems)).indexOf("Kilometer");
+        int positionTwo = new ArrayList<>(Arrays.asList(unitItems)).indexOf("Meter");
 
-        arrayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, lengthItems);
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, unitItems);
 
         dropdownQuestion = findViewById(R.id.dropdown_question);
         dropdownAnswer = findViewById(R.id.dropdown_answer);
