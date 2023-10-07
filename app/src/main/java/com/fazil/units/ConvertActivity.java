@@ -14,6 +14,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.ActionBar;
@@ -96,15 +97,17 @@ public class ConvertActivity extends AppCompatActivity {
         switch (unit){
             case "area":
                 units = new AreaUnits();
+                unitItems = AreaUnits.unitItems;
+                questionUnit = AreaUnits.primaryUnit;
+                answerUnit = AreaUnits.secondaryUnit;
                 break;
             case "length":
                 units = new LengthUnits();
+                unitItems = LengthUnits.unitItems;
+                questionUnit = LengthUnits.primaryUnit;
+                answerUnit = LengthUnits.secondaryUnit;
                 break;
         }
-        // Get the default values.
-        unitItems = LengthUnits.unitItems;
-        questionUnit = LengthUnits.primaryUnit;
-        answerUnit = LengthUnits.secondaryUnit;
 
         questionField = findViewById(R.id.edittext_question);
         answerField = findViewById(R.id.edittext_answer);
@@ -138,7 +141,7 @@ public class ConvertActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void afterTextChanged(Editable s) {
-                questionUnit = s.toString().toLowerCase();
+                questionUnit = s.toString();
                 changeValues(questionField.getText().toString());
             }
         });
@@ -150,7 +153,7 @@ public class ConvertActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
             public void afterTextChanged(Editable s) {
-                answerUnit = s.toString().toLowerCase();
+                answerUnit = s.toString();
                 changeValues(questionField.getText().toString());
             }
         });

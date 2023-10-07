@@ -25,52 +25,53 @@ public class LengthUnits implements Units {
     public static String primaryUnit = "Kilometer";
     public static String secondaryUnit = "Centimeter";
 
+    // Common Unit: Meter
     public double convertQuestionToCommon(String unit, Double value){
         double result = 0.0;
-        switch(unit.toLowerCase()){
-            case "centimeter":
+        switch(unit){
+            case "Centimeter":
                 result = value / 100;
                 break;
-            case "decameter":
+            case "Decameter":
                 result = value * 10;
                 break;
-            case "decimeter":
+            case "Decimeter":
                 result = value / 10;
                 break;
-            case "fathom":
+            case "Fathom":
                 result = value * 1.829;
                 break;
-            case "foot":
+            case "Foot":
                 result = value * 0.3048;
                 break;
-            case "furlong":
+            case "Furlong":
                 result = value * 201;
                 break;
-            case "hectometer":
+            case "Hectometer":
                 result = value * 100;
                 break;
-            case "inch":
+            case "Inch":
                 result = value * 0.0254;
                 break;
-            case "kilometer":
+            case "Kilometer":
                 result = value * 1000;
                 break;
-            case "meter":
+            case "Meter":
                 result = value / 1;
                 break;
-            case "mile":
+            case "Mile":
                 result = value * 1609;
                 break;
-            case "millimeter":
+            case "Millimeter":
                 result = value / 1000;
                 break;
-            case "nautical mile":
+            case "Nautical Mile":
                 result = value * 1852;
                 break;
-            case "rod":
+            case "Rod":
                 result = value * 5.029;
                 break;
-            case "yard":
+            case "Yard":
                 result = value * 0.9144;
                 break;
         }
@@ -79,50 +80,50 @@ public class LengthUnits implements Units {
 
     public double convertCommonToAnswer(String unit, Double value){
         double result = 0.0;
-        switch(unit.toLowerCase()){
-            case "centimeter":
+        switch(unit){
+            case "Centimeter":
                 result = value * 100;
                 break;
-            case "decameter":
+            case "Decameter":
                 result = value / 10;
                 break;
-            case "decimeter":
+            case "Decimeter":
                 result = value * 10;
                 break;
-            case "fathom":
+            case "Fathom":
                 result = value / 1.829;
                 break;
-            case "foot":
+            case "Foot":
                 result = value / 0.3048;
                 break;
-            case "furlong":
+            case "Furlong":
                 result = value / 201;
                 break;
-            case "hectometer":
+            case "Hectometer":
                 result = value / 100;
                 break;
-            case "inch":
+            case "Inch":
                 result = value / 0.0254;
                 break;
-            case "kilometer":
+            case "Kilometer":
                 result = value / 1000;
                 break;
-            case "meter":
+            case "Meter":
                 result = value * 1;
                 break;
-            case "mile":
+            case "Mile":
                 result = value / 1609;
                 break;
-            case "millimeter":
+            case "Millimeter":
                 result = value * 1000;
                 break;
-            case "nautical mile":
+            case "Nautical Mile":
                 result = value / 1852;
                 break;
-            case "rod":
+            case "Rod":
                 result = value / 5.029;
                 break;
-            case "yard":
+            case "Yard":
                 result = value / 0.9144;
                 break;
         }

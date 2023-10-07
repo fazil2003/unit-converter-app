@@ -5,73 +5,54 @@ import android.content.Context;
 public class AreaUnits implements Units {
 
     public static String[] unitItems = {
-            "Centimeter",
-            "Decameter",
-            "Decimeter",
-            "Fathom",
-            "Foot",
-            "Furlong",
-            "Hectometer",
-            "Inch",
-            "Kilometer",
-            "Meter",
-            "Mile",
-            "Millimeter",
-            "Nautical Mile",
-            "Rod",
-            "Yard"
+            "Square Inch",
+            "Square Foot",
+            "Square Yard",
+            "Square Mile",
+            "Acre",
+            "Hectare",
+            "Square Millimeter",
+            "Square Centimeter",
+            "Square Meter",
+            "Square Kilometer",
     };
 
-    public static String primaryUnit = "Kilometer";
-    public static String secondaryUnit = "Centimeter";
+    public static String primaryUnit = "Square Meter";
+    public static String secondaryUnit = "Square Centimeter";
 
+    // Common Unit: Square Meter
     public double convertQuestionToCommon(String unit, Double value){
         double result = 0.0;
-        switch(unit.toLowerCase()){
-            case "centimeter":
-                result = value / 100;
+        switch(unit){
+            case "Square Inch":
+                result = value * 0.00064516;
                 break;
-            case "decameter":
-                result = value * 10;
+            case "Square Foot":
+                result = value * 0.09290304;
                 break;
-            case "decimeter":
-                result = value / 10;
+            case "Square Yard":
+                result = value * 0.83612736;
                 break;
-            case "fathom":
-                result = value * 1.829;
+            case "Square Mile":
+                result = value * 2589988.110336;
                 break;
-            case "foot":
-                result = value * 0.3048;
+            case "Acre":
+                result = value * 4046.8564224;
                 break;
-            case "furlong":
-                result = value * 201;
+            case "Hectare":
+                result = value * 10000;
                 break;
-            case "hectometer":
-                result = value * 100;
+            case "Square Millimeter":
+                result = value * 0.000001;
                 break;
-            case "inch":
-                result = value * 0.0254;
+            case "Square Centimeter":
+                result = value * 0.0001;
                 break;
-            case "kilometer":
-                result = value * 1000;
+            case "Square Meter":
+                result = value;
                 break;
-            case "meter":
-                result = value / 1;
-                break;
-            case "mile":
-                result = value * 1609;
-                break;
-            case "millimeter":
-                result = value / 1000;
-                break;
-            case "nautical mile":
-                result = value * 1852;
-                break;
-            case "rod":
-                result = value * 5.029;
-                break;
-            case "yard":
-                result = value * 0.9144;
+            case "Square Kilometer":
+                result = value * 1000000;
                 break;
         }
         return result;
@@ -79,51 +60,36 @@ public class AreaUnits implements Units {
 
     public double convertCommonToAnswer(String unit, Double value){
         double result = 0.0;
-        switch(unit.toLowerCase()){
-            case "centimeter":
-                result = value * 100;
+        switch(unit){
+            case "Square Inch":
+                result = value / 0.00064516;
                 break;
-            case "decameter":
-                result = value / 10;
+            case "Square Foot":
+                result = value / 0.09290304;
                 break;
-            case "decimeter":
-                result = value * 10;
+            case "Square Yard":
+                result = value / 0.83612736;
                 break;
-            case "fathom":
-                result = value / 1.829;
+            case "Square Mile":
+                result = value / 2589988.110336;
                 break;
-            case "foot":
-                result = value / 0.3048;
+            case "Acre":
+                result = value / 4046.8564224;
                 break;
-            case "furlong":
-                result = value / 201;
+            case "Hectare":
+                result = value / 10000;
                 break;
-            case "hectometer":
-                result = value / 100;
+            case "Square Millimeter":
+                result = value / 0.000001;
                 break;
-            case "inch":
-                result = value / 0.0254;
+            case "Square Centimeter":
+                result = value / 0.0001;
                 break;
-            case "kilometer":
-                result = value / 1000;
+            case "Square Meter":
+                result = value;
                 break;
-            case "meter":
-                result = value * 1;
-                break;
-            case "mile":
-                result = value / 1609;
-                break;
-            case "millimeter":
-                result = value * 1000;
-                break;
-            case "nautical mile":
-                result = value / 1852;
-                break;
-            case "rod":
-                result = value / 5.029;
-                break;
-            case "yard":
-                result = value / 0.9144;
+            case "Square Kilometer":
+                result = value / 1000000;
                 break;
         }
         return result;
