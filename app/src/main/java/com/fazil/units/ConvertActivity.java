@@ -20,6 +20,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.fazil.units.units.AreaUnits;
 import com.fazil.units.units.LengthUnits;
 import com.fazil.units.units.Units;
 import com.fazil.units.utilities.CustomActionBar;
@@ -94,7 +95,7 @@ public class ConvertActivity extends AppCompatActivity {
         // Get the Units Interface.
         switch (unit){
             case "area":
-                units = new LengthUnits();
+                units = new AreaUnits();
                 break;
             case "length":
                 units = new LengthUnits();
