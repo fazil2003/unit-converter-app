@@ -87,7 +87,7 @@ public class ConvertActivity extends AppCompatActivity {
 
         // * Set the Title of the Activity.
         textViewActivityTitle = findViewById(R.id.textview_activity_title);
-        textViewActivityTitle.setText(unit);
+        textViewActivityTitle.setText(unit.substring(0, 1).toUpperCase() + unit.substring(1));
 
         // * Set the Action Bar Button.
         actionBarButton = findViewById(R.id.action_bar_button);
