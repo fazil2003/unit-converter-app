@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.fazil.units.units.AreaUnits;
 import com.fazil.units.units.LengthUnits;
 import com.fazil.units.units.Units;
+import com.fazil.units.units.VolumeUnits;
 import com.fazil.units.utilities.CustomActionBar;
 import com.fazil.units.utilities.TinyDB;
 
@@ -106,6 +107,12 @@ public class ConvertActivity extends AppCompatActivity {
                 unitItems = LengthUnits.unitItems;
                 questionUnit = LengthUnits.primaryUnit;
                 answerUnit = LengthUnits.secondaryUnit;
+                break;
+            case "volume":
+                units = new VolumeUnits();
+                unitItems = VolumeUnits.unitItems;
+                questionUnit = VolumeUnits.primaryUnit;
+                answerUnit = VolumeUnits.secondaryUnit;
                 break;
         }
 
