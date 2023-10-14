@@ -7,15 +7,14 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
         android:layout_above="@id/layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fontFamily="?attr/fontBold"
-        android:gravity="center"
-        android:textSize="80sp"
-        android:textColor="@color/white"
-        android:text="unitz"/>
+        android:src="@drawable/logo_app"
+        android:padding="60dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
 
     <LinearLayout
         android:id="@+id/layout_bottom"
@@ -45,7 +44,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginBottom="20dp"
-            android:textColor="@color/white"
+            android:textColor="@color/darkcolor_1"
             android:textSize="18sp"
             android:text="Version 1.0.0"/>
 
